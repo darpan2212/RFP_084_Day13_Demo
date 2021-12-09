@@ -2,7 +2,7 @@ package com.maxnumber;
 
 public class MaximumNumber {
 
-	public int findMaxNumber(int x, int y, int z) {
+	public double findMaxNumber(double x, double y, double z) {
 		if (x > y && x > z) {
 			return x;
 		}
@@ -16,10 +16,10 @@ public class MaximumNumber {
 	}
 
 	public static void main(String[] args) {
-		int intX = 45, intY = 51, intZ = 97;
+		double doubleX = 45, doubleY = 51, doubleZ = 97;
 		
 		MaximumNumber maxInt = new MaximumNumber();
-		System.out.println(maxInt.findMaxNumber(intX, intY, intZ));
+		System.out.println(maxInt.findMaxNumber(doubleX, doubleY, doubleZ));
 	}
 
 }
