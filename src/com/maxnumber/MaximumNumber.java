@@ -1,25 +1,33 @@
 package com.maxnumber;
 
-public class MaximumNumber {
+public class MaximumNumber<T extends Comparable<T>> {
 
-	public double findMaxNumber(double x, double y, double z) {
-		if (x > y && x > z) {
-			return x;
+	public T findMax(T x, T y, T z) {
+		T max = x;
+		if (y.compareTo(max) >= 1) {
+			max = y;
 		}
-		if (y > x && y > z) {
-			return y;
+		if (z.compareTo(max) >= 1) {
+			max = z;
 		}
-		if (z > y && z > x) {
-			return z;
-		}
-		return 0;
+		return max;
 	}
 
 	public static void main(String[] args) {
-		double doubleX = 45, doubleY = 51, doubleZ = 97;
-		
-		MaximumNumber maxInt = new MaximumNumber();
-		System.out.println(maxInt.findMaxNumber(doubleX, doubleY, doubleZ));
+
+		String stringX = "Zello", stringY = "world", stringZ = "zjbkdlcasghcfx";
+
+		MaximumNumber<String> maxInt = new MaximumNumber<String>();
+		System.out.println(maxInt.findMax(stringX, stringY, stringZ));
+
+		Employee emp1 = new Employee("Emp1", 100000);
+		Employee emp2 = new Employee("Emp2", 170000);
+		Employee emp3 = new Employee("Emp3", 126000);
+
+		MaximumNumber<Employee> findMaxEmp = new MaximumNumber<>();
+		Employee maxSalaryEmp = findMaxEmp.findMax(emp1, emp2, emp3);
+
+		System.out.println(maxSalaryEmp.empName + " is earning more salary (" + maxSalaryEmp.empSalary + " INR) ");
 	}
 
 }
